@@ -28,5 +28,3 @@ VOLUME /data
 ENV HOME=/data DEBUG_ADDRESS=0.0.0.0 DEBUG_PORT=9222
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-
-CMD ["/usr/bin/start.sh"]
