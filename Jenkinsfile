@@ -2,7 +2,7 @@ pipeline {
   agent none
   stages {
     stage('NUNIT') {
-	  agent { docker 'atin/dotnet-headless1' }
+	  agent { docker 'atin/dotnet-headless2' }
       steps {
 		slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
 		slackSend "Docker Container Created"
