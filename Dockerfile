@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 
 RUN apt-get update && \
+    apt-get install -y wget && \
     wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb && \
     dpkg -i packages-microsoft-prod.deb && \
     apt-get install apt-transport-https && \
