@@ -78,8 +78,7 @@ namespace HeadLessTest
             link.Click();
             var pgTitle = driver.Title;
             driver.Quit();
-
-            Assert.Contains("Site Map", pgTitle);
+            Assert.Contains("This should fail", pgTitle);
         }
     }
 }
