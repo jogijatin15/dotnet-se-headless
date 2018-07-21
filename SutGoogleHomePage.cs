@@ -18,17 +18,16 @@ namespace HeadLessTest
         public SutGoogleHomePage()
         {
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.SetCapability(CapabilityType.AppiumVersion, "1.8.0");
-            caps.SetCapability(CapabilityType.DeviceName, "iPhone 8 Plus Simulator");
-            caps.SetCapability(CapabilityType.DeviceOrientation, "portrait");
-            caps.SetCapability(CapabilityType.PlatformVersion, "11.2");
-            caps.SetCapability(CapabilityType.PlatformName, "iOS");
-            caps.SetCapability(CapabilityType.BrowserName, "Safari");
 
+            caps.SetCapability("appiumVersion", "1.8.0");
+            caps.SetCapability("deviceName", "iPhone 8 Simulator");
+            caps.SetCapability("deviceOrientation", "portrait");
+            caps.SetCapability("platformVersion", "11.2");
+            caps.SetCapability("platformName", "iOS");
+            caps.SetCapability("browserName", "Safari");
             caps.SetCapability("username", System.Environment.GetEnvironmentVariable("SAUCE_USERNAME"));
             caps.SetCapability("accessKey", System.Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY"));
             appURL = "https://www.geico.com/";
-
             driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), caps, TimeSpan.FromSeconds(600));
         }
 
