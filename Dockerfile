@@ -1,8 +1,7 @@
-FROM ubuntu:16.04
+FROM microsoft/dotnet:2.1-sdk
 
 RUN apt-get update && \
     apt-get install -y wget && \
-    apt-get install dotnet-sdk-2.1 && \
     apt-get install -y xvfb && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg --unpack google-chrome-stable_current_amd64.deb && \
