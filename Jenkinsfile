@@ -9,7 +9,7 @@ pipeline {
 				parallel(
 					Smoke: {
 						slackSend color: "229954",
-						message: "Starting *Smoke Testing* Job"
+						message: "Starting *Smoke Testing* Job on *Headless Chrome*"
 
 						sh 'echo "Creating [.NET Core + Selenium + Chrome Headless] Docker container..."'
 						slackSend color: "cceef9", message: "`Starting Smoke Tests on https://www.geico.com/` Job Details: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
