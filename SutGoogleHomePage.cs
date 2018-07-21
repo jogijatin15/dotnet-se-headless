@@ -21,8 +21,8 @@ namespace HeadLessTest
             caps.SetCapability(CapabilityType.BrowserName, "chrome");
             caps.SetCapability(CapabilityType.Version, "latest");
             caps.SetCapability(CapabilityType.Platform, "Windows 10");
-            caps.SetCapability("username", "Cognizant_Integration");
-            caps.SetCapability("accessKey", "a90e4692-648f-49b8-9691-b372a9973c12");
+            caps.SetCapability("username", System.Environment.GetEnvironmentVariable("SAUCE_USERNAME"));
+            caps.SetCapability("accessKey", System.Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY"));
             caps.SetCapability("name", "Test Case 1");
             googleUrl = "https://www.google.com";
             driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), caps, TimeSpan.FromSeconds(600));
