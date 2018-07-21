@@ -15,7 +15,7 @@ pipeline {
 						slackSend color: "cceef9", message: "`Starting Regression Tests on https://www.geico.com/` Job Details: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
 						slackSend color: "cceef9", message: "`Creating [.NET Core + Selenium + Chrome Headless] Docker container...`"
 
-						sh 'echo "Starting Integration Test Execution on https://www.geico.com/"'
+						sh 'echo "Starting Regression Test Execution on https://www.geico.com/"'
 
             sh '''
             echo "hello-world"
@@ -47,9 +47,9 @@ pipeline {
 						sh 'sleep 8'
 						slackSend color: "ff0000", message: "TestCase 5: *FAILED*"
 
-						slackSend color: "cceef9", message: "`Regression Test Execution Completed`"
-						slackSend color: "cceef9", message: "`Destroying Docker container`"
 						slackSend color: "cceef9", message: "`Regression Test Execution Complete` Job URL: (<${env.BUILD_URL}|Open>) (<${env.SauceLabsVideo}|SauceLabs Video>)"
+            slackSend color: "cceef9", message: "`Destroying Docker container`"
+
 
 					}
 				)
