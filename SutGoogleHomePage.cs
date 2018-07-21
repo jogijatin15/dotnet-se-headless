@@ -18,9 +18,13 @@ namespace HeadLessTest
         public SutGoogleHomePage()
         {
             DesiredCapabilities caps = new DesiredCapabilities();
-            caps.SetCapability(CapabilityType.BrowserName, "chrome");
-            caps.SetCapability(CapabilityType.Version, "latest");
-            caps.SetCapability(CapabilityType.Platform, "macOS 10.13");
+            caps.SetCapability(CapabilityType.AppiumVersion, "1.8.0");
+            caps.SetCapability(CapabilityType.DeviceName, "iPhone 8 Plus Simulator");
+            caps.SetCapability(CapabilityType.DeviceOrientation, "portrait");
+            caps.SetCapability(CapabilityType.PlatformVersion, "11.2");
+            caps.SetCapability(CapabilityType.PlatformName, "iOS");
+            caps.SetCapability(CapabilityType.BrowserName, "Safari");
+
             caps.SetCapability("username", System.Environment.GetEnvironmentVariable("SAUCE_USERNAME"));
             caps.SetCapability("accessKey", System.Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY"));
             appURL = "https://www.geico.com/";
@@ -37,48 +41,5 @@ namespace HeadLessTest
             Assert.Contains("GEICO", pgTitle);
         }
 
-        [Fact]
-        public void validateFooterLegal()
-        {
-            driver.Navigate().GoToUrl(appURL);
-            IWebElement link = driver.FindElement(By.LinkText("LEGAL & SECURITY"));
-            link.Click();
-            var pgTitle = driver.Title;
-            driver.Quit();
-            Assert.Contains("Legal & Security", pgTitle);
-        }
-
-        [Fact]
-        public void validateFooterCareers()
-        {
-            driver.Navigate().GoToUrl(appURL);
-            IWebElement link = driver.FindElement(By.LinkText("CAREERS"));
-            link.Click();
-            var pgTitle = driver.Title;
-            driver.Quit();
-            Assert.Contains("Careers", pgTitle);
-        }
-
-        [Fact]
-        public void validateFooterContact()
-        {
-            driver.Navigate().GoToUrl(appURL);
-            IWebElement link = driver.FindElement(By.LinkText("CONTACT US"));
-            link.Click();
-            var pgTitle = driver.Title;
-            driver.Quit();
-            Assert.Contains("Contact Us", pgTitle);
-        }
-
-        [Fact]
-        public void validateFooterSiteMap()
-        {
-            driver.Navigate().GoToUrl(appURL);
-            IWebElement link = driver.FindElement(By.LinkText("SITE MAP"));
-            link.Click();
-            var pgTitle = driver.Title;
-            driver.Quit();
-            Assert.Contains("This should fail", pgTitle);
-        }
     }
 }
