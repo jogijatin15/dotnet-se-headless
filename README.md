@@ -14,7 +14,7 @@ This repository contains source code for a simple cross platform integration tes
 
 * Verify _.net core 2x_ is installed
 
-Run command `dotnet --version` in a terminal window, verify the net core version is `2` or above. Follow instructions in microsoft net core downloads page to install/update net core in your machine. [.net core downloads page](https://www.microsoft.com/net/download/windows) 
+Run command `dotnet --version` in a terminal window, verify the net core version is `2` or above. Follow instructions in microsoft net core downloads page to install/update net core in your machine. [.net core downloads page](https://www.microsoft.com/net/download/windows)
 
 * Verify _Google chrome version_ `59` or above is installed
   * If the computer you are running the tests are have a graphical user interface such as (Windows / Linux/ MAC OSX ) and have Chrome installed.
@@ -27,7 +27,7 @@ Run command `dotnet --version` in a terminal window, verify the net core version
 
   * If you are running tests in a Headless CI agent such as Travis CI, Circle CI or appVeyor
 
-   Verify that you have included appropriate _environmental setup_ in the configuration `.yml` file. I'm using _TravisCI_ for this repository and you can find the configuration settings this project uses in `/.travis.yml` file [Link to file](https://github.com/shibut12/headless-integration-testing-csharp-chrome/blob/master/.travis.yml)
+   Verify that you have included appropriate _environmental setup_ in the configuration `.yml` file. I'm using _TravisCI_ for this repository and you can find the configuration settings this project uses in `/.travis.yml` file 
 
 * Verify [git-scm](https://git-scm.com/) is installed
 
@@ -36,12 +36,6 @@ Run command `dotnet --version` in a terminal window, verify the net core version
 ## How to run
 
 If your environment is setup appropriately, run following commands to execute tests.
-
-* Clone the git repository
-
-```posh
-git clone https://github.com/shibut12/headless-integration-testing-csharp-chrome.git
-```
 
 * Restore dependencies
 
@@ -54,16 +48,11 @@ dotnet restore
 
 ```posh
 dotnet test
-``` 
+```
 
 If everything goes well, you will see test results in the terminal.
 
 ```posh
-C:\shibu\repos\headless-integration-testing-csharp-chrome>dotnet test
-Build started, please wait...
-Build completed.
-
-Test run for C:\shibu\repos\headless-integration-testing-csharp-chrome\bin\Debug\netcoreapp2.0\HeadLessTest.dll(.NETCoreApp,Version=v2.0)
 Microsoft (R) Test Execution Command Line Tool Version 15.6.0-preview-20180109-01
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
