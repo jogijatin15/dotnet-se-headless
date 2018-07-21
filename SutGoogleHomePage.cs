@@ -4,39 +4,36 @@ using System.IO;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Reflection;
+using OpenQA.Selenium.Remote;
 
 namespace HeadLessTest
 {
     public class SutGoogleHomePage
     {
-        private ChromeOptions desiredCapabilities;
+        // private ChromeOptions desiredCapabilities;
         private string googleUrl;
-        private ChromeDriver chromeDriver;
+        // private ChromeDriver chromeDriver;
+        private IWebDriver driver;
 
         public SutGoogleHomePage()
         {
-            desiredCapabilities = new ChromeOptions();
-            desiredCapabilities.AddArgument("--headless");
-            desiredCapabilities.AddArgument("--no-sandbox");
-            desiredCapabilities.AddArgument("--ignore-ssl-errors=true");
-            desiredCapabilities.AddArgument("--ssl-protocol=any");
-            desiredCapabilities.AddArgument("--disable-gpu");
-            desiredCapabilities.AddArgument("window-size=1400,600");
-
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.SetCapability(CapabilityType.BrowserName, "chrome");
+            caps.SetCapability(CapabilityType.Version, "latest");
+            caps.SetCapability(CapabilityType.Platform, "Windows 10");
+            caps.SetCapability("username", "Cognizant_Integration");
+            caps.SetCapability("accessKey", "a90e4692-648f-49b8-9691-b372a9973c12");
+            caps.SetCapability("name", "Test Case 1");
             googleUrl = "https://www.google.com";
-
-            chromeDriver = new ChromeDriver(
-                Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), 
-                desiredCapabilities
-            );
+            driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), caps, TimeSpan.FromSeconds(600));
         }
 
         [Fact]
         public void GoogleHomePageVerifyPageIsLoading()
         {
-            chromeDriver.Navigate().GoToUrl(googleUrl);
-            var pgTitle = chromeDriver.Title;
-            chromeDriver.Quit();
+            driver.Navigate().GoToUrl(googleUrl);
+            var pgTitle = driver.Title;
+            driver.Quit();
 
             Assert.Equal("Google", pgTitle);
         }
@@ -44,13 +41,13 @@ namespace HeadLessTest
         [Fact]
         public void GoogleHomePageVerifyUserIsAbleToSearch()
         {
-            chromeDriver.Navigate().GoToUrl(googleUrl);
-            IWebElement searchInputBox = chromeDriver.FindElement(By.Name("q"));
+            driver.Navigate().GoToUrl(googleUrl);
+            IWebElement searchInputBox = driver.FindElement(By.Name("q"));
             searchInputBox.SendKeys("codewithdot.net");
             searchInputBox.Submit();
-            var pgTitle = chromeDriver.Title;
+            var pgTitle = driver.Title;
 
-            chromeDriver.Quit();
+            driver.Quit();
 
             Assert.Equal("codewithdot.net - Google Search", pgTitle);
         }
