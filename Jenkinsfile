@@ -9,7 +9,7 @@ pipeline {
 				parallel(
 					Regression: {
 						slackSend color: "229954",
-						message: "Starting *Regression Testing* Job"
+						message: "Starting *Regression Testing* Job on *Sauce Labs*"
 
 						sh 'echo "Creating [.NET Core + Selenium + Chrome Headless] Docker container..."'
 						slackSend color: "cceef9", message: "`Starting Regression Tests on https://www.geico.com/` Job Details: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
