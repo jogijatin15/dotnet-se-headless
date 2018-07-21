@@ -2,14 +2,14 @@ platform: linux
 
 image_resource:
   type: docker-image
-  source: {repository: atin/dotnet-headless2}
+  source: {repository: atin/dotnet-headless-chrome}
 
 inputs:
-- name: unit-testing-using-nunit
+- name: dotnet-se-headless
 
 outputs:
 - name: tests
 
 run:
   path: sh
-  args: ['./unit-testing-using-nunit/ci/scripts/functional-test.sh']
+  args: ['./dotnet-se-headless/ci/scripts/functional-test.sh']

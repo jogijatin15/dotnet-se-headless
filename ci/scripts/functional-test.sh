@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-set -x
+set -e -x
 
 export DISPLAY=:99
-#chown cognizant:cognizant /etc/init.d/
 bash /etc/init.d/xvfb start
 
 ls -las
