@@ -27,6 +27,8 @@ namespace HeadLessTest
             caps.SetCapability("browserName", "Safari");
             caps.SetCapability("username", System.Environment.GetEnvironmentVariable("SAUCE_USERNAME"));
             caps.SetCapability("accessKey", System.Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY"));
+            caps.SetCapability("name", "TC1 - Start a new Insurance Quote");
+
             appURL = "https://www.geico.com/";
             driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), caps, TimeSpan.FromSeconds(600));
         }
@@ -35,6 +37,8 @@ namespace HeadLessTest
         public void validateHomePage()
         {
             driver.Navigate().GoToUrl(appURL);
+            driver.FindElement(By.Id("zip")).SendKeys("90034");
+            driver.FindElement(By.Id("submitButton")).Click();
             var pgTitle = driver.Title;
             driver.Quit();
             Assert.Contains("GEICO", pgTitle);
