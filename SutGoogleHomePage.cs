@@ -39,6 +39,13 @@ namespace HeadLessTest
             driver.Navigate().GoToUrl(appURL);
             driver.FindElement(By.Id("zip")).SendKeys("90034");
             driver.FindElement(By.Id("submitButton")).Click();
+
+            driver.FindElement(By.LinkText("skip")).Click();
+
+            driver.FindElement(By.Id("firstName")).SendKeys("Mike");
+            driver.FindElement(By.Id("lastName")).SendKeys("West");
+            driver.FindElement(By.CssSelector(".btn-spotlight")).Click();
+
             var pgTitle = driver.Title;
             driver.Quit();
             Assert.Contains("GEICO", pgTitle);
