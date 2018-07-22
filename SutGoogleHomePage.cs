@@ -27,7 +27,7 @@ namespace HeadLessTest
             caps.SetCapability("browserName", "Safari");
             caps.SetCapability("username", System.Environment.GetEnvironmentVariable("SAUCE_USERNAME"));
             caps.SetCapability("accessKey", System.Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY"));
-            caps.SetCapability("name", "TC1 - Start a new Insurance Quote");
+            caps.SetCapability("name", "TC1 - Start a new Insurance Quote on Mobile Device");
 
             appURL = "https://www.geico.com/";
             driver = new RemoteWebDriver(new Uri("http://ondemand.saucelabs.com:80/wd/hub"), caps, TimeSpan.FromSeconds(600));
