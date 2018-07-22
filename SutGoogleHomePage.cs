@@ -5,6 +5,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Reflection;
 using OpenQA.Selenium.Remote;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace HeadLessTest
 {
@@ -25,8 +27,11 @@ namespace HeadLessTest
             caps.SetCapability("platformVersion", "11.2");
             caps.SetCapability("platformName", "iOS");
             caps.SetCapability("browserName", "Safari");
-            caps.SetCapability("username", System.Environment.GetEnvironmentVariable("SAUCE_USERNAME"));
-            caps.SetCapability("accessKey", System.Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY"));
+            // caps.SetCapability("username", System.Environment.GetEnvironmentVariable("SAUCE_USERNAME"));
+            // caps.SetCapability("accessKey", System.Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY"));
+
+            caps.SetCapability("username", "Cognizant_Integration");
+            caps.SetCapability("accessKey", "a90e4692-648f-49b8-9691-b372a9973c12");
             caps.SetCapability("name", "TC1 - Start a new Insurance Quote on Mobile Device");
 
             appURL = "https://www.geico.com/";
@@ -37,9 +42,12 @@ namespace HeadLessTest
         public void validateHomePage()
         {
             driver.Navigate().GoToUrl(appURL);
+            Thread.Sleep(5000);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+
             driver.FindElement(By.Id("zip")).SendKeys("90034");
             driver.FindElement(By.Id("submitButton")).Click();
-            Thread.Sleep(8000);  
+            Thread.Sleep(25000);
 
             driver.FindElement(By.LinkText("skip")).Click();
 
