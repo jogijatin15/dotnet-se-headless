@@ -39,6 +39,7 @@ namespace HeadLessTest
             driver.Navigate().GoToUrl(appURL);
             driver.FindElement(By.Id("zip")).SendKeys("90034");
             driver.FindElement(By.Id("submitButton")).Click();
+            Thread.Sleep(8000);  
 
             driver.FindElement(By.LinkText("skip")).Click();
 
