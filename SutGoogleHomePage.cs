@@ -47,13 +47,14 @@ namespace HeadLessTest
 
             driver.FindElement(By.Id("zip")).SendKeys("90034");
             driver.FindElement(By.Id("submitButton")).Click();
-            Thread.Sleep(25000);
 
-            driver.FindElement(By.LinkText("skip")).Click();
-
-            driver.FindElement(By.Id("firstName")).SendKeys("Mike");
-            driver.FindElement(By.Id("lastName")).SendKeys("West");
-            driver.FindElement(By.CssSelector(".btn-spotlight")).Click();
+            // Thread.Sleep(25000);
+            //
+            // driver.FindElement(By.LinkText("skip")).Click();
+            //
+            // driver.FindElement(By.Id("firstName")).SendKeys("Mike");
+            // driver.FindElement(By.Id("lastName")).SendKeys("West");
+            // driver.FindElement(By.CssSelector(".btn-spotlight")).Click();
 
             var pgTitle = driver.Title;
             driver.Quit();
