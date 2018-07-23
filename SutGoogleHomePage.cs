@@ -42,8 +42,8 @@ namespace HeadLessTest
         public void validateHomePage()
         {
             driver.Navigate().GoToUrl(appURL);
-            Thread.Sleep(5000);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(100);
+            Thread.Sleep(20000);
 
             driver.FindElement(By.Id("zip")).SendKeys("90034");
             driver.FindElement(By.Id("submitButton")).Click();
