@@ -28,7 +28,7 @@ pipeline {
 					Notifications: {
 						sh 'sleep 70'
 						slackSend color: "78909C", message: "Executing TestCase 1: *Home Page Validation*"
-						sh 'sleep 100'
+						sh 'sleep 75'
 						slackSend color: "2196F3", message: "TestCase 1: *PASSED*"
 
 						slackSend color: "cceef9", message: "`Mobile Test Execution Complete` Job URL: (<${env.BUILD_URL}|Open>) (<${env.SauceLabsVideo}|SauceLabs Video>)"
