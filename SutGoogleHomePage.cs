@@ -21,10 +21,10 @@ namespace HeadLessTest
         {
             DesiredCapabilities caps = new DesiredCapabilities();
 
-            caps.SetCapability("appiumVersion", "1.8.0");
-            caps.SetCapability("deviceName", "iPhone 8 Simulator");
+            caps.SetCapability("appiumVersion", "1.9.1");
+            caps.SetCapability("deviceName", "iPhone X Simulator");
             caps.SetCapability("deviceOrientation", "portrait");
-            caps.SetCapability("platformVersion", "11.2");
+            caps.SetCapability("platformVersion", "12.0");
             caps.SetCapability("platformName", "iOS");
             caps.SetCapability("browserName", "Safari");
             // caps.SetCapability("username", System.Environment.GetEnvironmentVariable("SAUCE_USERNAME"));
